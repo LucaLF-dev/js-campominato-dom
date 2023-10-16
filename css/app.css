@@ -19,6 +19,17 @@
     font-weight: 800;
 }
 
+.wrapper__punteggio {
+    display: flex;
+    gap: 20px;
+
+}
+
+#punteggio {
+    font-size: 28px;
+
+}
+
 .btn-game {
     font-size: 20px;
     margin-left: 10px;
@@ -57,4 +68,8 @@
 .bg-azure {
     background-color: aquamarine;
     color: aquamarine;
+}
+
+.bg-red {
+    background-color: red;
 }

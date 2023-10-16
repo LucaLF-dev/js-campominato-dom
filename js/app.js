@@ -15,27 +15,33 @@ console.log(gridElement);
 const selectDOMElement = document.getElementById('difficolta-game')
 console.log(selectDOMElement)
 
+// Richiamo dal Dom l'elemento 'punteggio' figlio di wrapper__punteggio 
+const punteggioDOMElement = document.getElementById('punteggio')
+console.log(punteggioDOMElement)
+
+
+
 // creo una funzione per avere un array con 16 numeri casuali diversi tra loro
 function getArrayOfRandomIntBetween(min, max, number) {
-	const ArrayBombs = []
+	const arrayBombs = []
 
 	// popolare l'array con 16 numeri random non duplicati
-	while (ArrayBombs.length < number) {
+	while (arrayBombs.length < number) {
 		// generare un numero random da rangeMin a rangeMAx
 		const n = getRandomIntInclusive(min, max)
 		// console.log(n)
 		// SE n non è presente nell'array di bombe
-		console.log(ArrayBombs.includes(n))
-		if (ArrayBombs.includes(n) !== true) {
+		console.log(arrayBombs.includes(n))
+		if (arrayBombs.includes(n) !== true) {
 			// pushare il numero nell'array di bombe
-			ArrayBombs.push(n)
+			arrayBombs.push(n)
 		}
-		console.log(ArrayBombs)
+		console.log(arrayBombs)
 
 	}
 
 	// return array di numeri generati
-	return ArrayBombs
+	return arrayBombs
 }
 
 // creo una funzione per avere dei numeri interi random
@@ -50,13 +56,14 @@ gameBtnElement.addEventListener("click", function () {
 	//     - svuoto la griglia delle celle generate in precedenza
 	gridElement.innerHTML = "";
 	//     - genero 100 caselle,  con un numero progressivo da 1 a 100
-
+    punteggioDOMElement.innerHTML ='';
 
 // creo una variabile difficoltà , selezionando il valore della select nel dom
     const difficoltà = selectDOMElement.value;
     // console.log(difficoltà)
 
     let cellLenght = 100
+	let j = 10;
     if (difficoltà === 'difficolta-2') {
         // con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 		cellLenght = 9 **2
@@ -65,19 +72,16 @@ gameBtnElement.addEventListener("click", function () {
 		// con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
         cellLenght = 7 **2
         j = 7
-    } else {
-		// con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
-        j = 10
     }
     console.log(difficoltà)
 	console.log(cellLenght)
        
-// creo la costante bombe 
-const bombNumber = 16
-const bombe = getArrayOfRandomIntBetween(1,cellLenght,16)
-console.log(bombe)
+	// creo la costante bombe 
+	const bombNumber = 16
+	const bombe = getArrayOfRandomIntBetween(1,cellLenght,16)
+	console.log(bombe)
 
-// genero le nuove caselle in base alla difficoltà da inserire nella griglia del dom
+	// genero le nuove caselle in base alla difficoltà da inserire nella griglia del dom
 	for (let i = 0; i < cellLenght; i++) {
 		const n = i + 1;
 		// console.log(n);
@@ -104,10 +108,35 @@ console.log(bombe)
 			// currentCellElement.classList.add("bg-azure");
 
 			// prendo il numero della casella corrente
+			const selectedCell = i + 1
+			// console.log("Ho cliccato sulla cella numero ", currentCellElement.innerHTML);
+			console.log("Ho cliccato sulla cella numero ", i + 1);
+
+			// - SE il numero della casella è presente nell'array di bombe
+			if (bombe.includes(selectedCell)) {
+			//   - aggiungo la classe bg-red
+			   currentCellElement.classList.add("bg-red")
+
+			   //   - faccio apparire un alert con scritto game over
+			   console.log('GAME OVER')
+
+		    } else {
+				//   - aggiungo la classe bg-blue
+				currentCellElement.classList.add("bg-azure")
+               //   - incremento il punteggio
+			   punteggioDOMElement.innerHTML++ 
+			   console.log(punteggioDOMElement.innerHTML)
+			}
 			
 			
 		});
+        
+	
+
+
 	}
+
+	
 });
 
 
