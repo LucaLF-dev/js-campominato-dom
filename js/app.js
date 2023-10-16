@@ -58,7 +58,7 @@ gameBtnElement.addEventListener("click", function () {
 
 	//    - recupero tutte le caselle create
 	const cellDOMElement = document.querySelectorAll(".cell");
-	console.log(cellDOMElement);
+	// console.log(cellDOMElement);
 
 	//    - ciclo le caselle del dom nell' array
 	for (let i = 0; i < cellDOMElement.length; i++) {
@@ -66,7 +66,11 @@ gameBtnElement.addEventListener("click", function () {
 
 		//   - aggiungo ad ogni casella l'eventlistner, che al click cambiera il background in verde
 		currentCellElement.addEventListener("click", function () {
-			currentCellElement.classList.add("bg-azure");
+			// currentCellElement.classList.add("bg-azure");
+
+			// prendo il numero della casella corrente
+			const currentCellElement
+            console.log(cellDOMElement)
 		});
 	}
 });
