@@ -15,6 +15,28 @@ console.log(gridElement);
 const selectDOMElement = document.getElementById('difficolta-game')
 console.log(selectDOMElement)
 
+function getArrayOfRandomIntBetween(min, max, number) {
+	const ArrayBombs = []
+
+	// popolare l'array con 16 numeri random non duplicati
+	while (ArrayBombs.length < number) {
+		// generare un numero random da rangeMin a rangeMAx
+		const n = getRandomIntInclusive(min, max)
+		// console.log(n)
+		// SE n non è presente nell'array di bombe
+		console.log(ArrayBombs.includes(n))
+		if (ArrayBombs.includes(n) !== true) {
+			// pushare il numero nell'array di bombe
+			ArrayBombs.push(n)
+		}
+		console.log(ArrayBombs)
+
+	}
+
+	// return array di numeri generati
+	return ArrayBombs
+}
+
 gameBtnElement.addEventListener("click", function () {
 	console.log("gioca");
 	//     - svuoto la griglia delle celle generate in precedenza
@@ -24,7 +46,7 @@ gameBtnElement.addEventListener("click", function () {
 
 // creo una variabile difficoltà , selezionando il valore della select nel dom
     const difficoltà = selectDOMElement.value;
-    console.log(difficoltà)
+    // console.log(difficoltà)
 
     let cellLenght = 100
     if (difficoltà === 'difficolta-2') {
@@ -34,22 +56,25 @@ gameBtnElement.addEventListener("click", function () {
     } else if (difficoltà === 'difficolta-3') {
 		// con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
         cellLenght = 7 **2
+		console.log(celleLenght)
         j = 7
     } else {
 		// con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
         j = 10
     }
-    console.log(cellLenght)
+    console.log(difficoltà)
        
+// creo la costante bombe 
+const bombNumber = 16
+const bombe = getArrayOfRandomIntBetween(1,cellLenght,bombNumber)
 
-
+// genero le nuove caselle in base alla difficoltà da inserire nella griglia del dom
 	for (let i = 0; i < cellLenght; i++) {
 		const n = i + 1;
 		// console.log(n);
         
 		//  - creo una variabile col contenuto che andrà poi stampato nel dom element grid
 		const htmlCell = `<div class="cell cell${-j} "> ${n}</div> `;
-        console.log(htmlCell)
 		// console.log(htmlCell);
 
 		// - stampo nel dom le celle concatenando il gridelement al htmlcell
@@ -63,14 +88,15 @@ gameBtnElement.addEventListener("click", function () {
 	//    - ciclo le caselle del dom nell' array
 	for (let i = 0; i < cellDOMElement.length; i++) {
 		const currentCellElement = cellDOMElement[i];
+		
 
 		//   - aggiungo ad ogni casella l'eventlistner, che al click cambiera il background in verde
 		currentCellElement.addEventListener("click", function () {
 			// currentCellElement.classList.add("bg-azure");
 
 			// prendo il numero della casella corrente
-			const currentCellElement
-            console.log(cellDOMElement)
+			
+			
 		});
 	}
 });
