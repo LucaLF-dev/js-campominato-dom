@@ -58,7 +58,7 @@ gameBtnElement.addEventListener("click", function () {
 	//     - genero 100 caselle,  con un numero progressivo da 1 a 100
     punteggioDOMElement.innerHTML ='';
 
-// creo una variabile difficoltà , selezionando il valore della select nel dom
+    // creo una variabile difficoltà , selezionando il valore della select nel dom
     const difficoltà = selectDOMElement.value;
     // console.log(difficoltà)
 
@@ -78,8 +78,8 @@ gameBtnElement.addEventListener("click", function () {
        
 	// creo la costante bombe 
 	const bombNumber = 16
-	const bombe = getArrayOfRandomIntBetween(1,cellLenght,16)
-	console.log(bombe)
+	const bombe = getArrayOfRandomIntBetween(1,cellLenght,bombNumber)
+	// console.log(bombe)
 
 	// genero le nuove caselle in base alla difficoltà da inserire nella griglia del dom
 	for (let i = 0; i < cellLenght; i++) {
@@ -128,15 +128,20 @@ gameBtnElement.addEventListener("click", function () {
 			   console.log(punteggioDOMElement.innerHTML)
 			}
 			
-			
+			let punteggio = punteggioDOMElement.innerHTML
+            if (punteggio == (cellLenght - bombNumber) ) {
+		     alert('hai vinto')
+	        }
 		});
-        
+         
+		
 	
 
 
 	}
 
-	
+    
+
 });
 
 
