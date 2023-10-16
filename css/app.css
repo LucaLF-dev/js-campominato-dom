@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.header__wrapper {
+    padding: 20px 10px;
+}
+
+.wrapper__title {
+    font-size: 48px;
+    color: chocolate;
+    font-weight: 800;
+}
+
+.btn-game {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.main__wrapper {
+    padding: 40px 10px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell{
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.cell-7 {
+    flex-basis: calc(100% / 7);
+    
+}
+
+.cell-9 {
+    flex-basis: calc(100% / 9);
+}
+
+.cell-10 {
+    flex-basis: calc(100% / 10);
+}
+
+.bg-azure {
+    background-color: aquamarine;
+    color: aquamarine;
+}
