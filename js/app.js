@@ -15,6 +15,7 @@ console.log(gridElement);
 const selectDOMElement = document.getElementById('difficolta-game')
 console.log(selectDOMElement)
 
+// creo una funzione per avere un array con 16 numeri casuali diversi tra loro
 function getArrayOfRandomIntBetween(min, max, number) {
 	const ArrayBombs = []
 
@@ -37,6 +38,13 @@ function getArrayOfRandomIntBetween(min, max, number) {
 	return ArrayBombs
 }
 
+// creo una funzione per avere dei numeri interi random
+function getRandomIntInclusive(min, max) {
+	min = Math.ceil(min)
+	max = Math.floor(max)
+	return Math.floor(Math.random() * (max - min + 1) + min) // The maximum is inclusive and the minimum is inclusive
+}
+
 gameBtnElement.addEventListener("click", function () {
 	console.log("gioca");
 	//     - svuoto la griglia delle celle generate in precedenza
@@ -56,17 +64,18 @@ gameBtnElement.addEventListener("click", function () {
     } else if (difficoltà === 'difficolta-3') {
 		// con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
         cellLenght = 7 **2
-		console.log(celleLenght)
         j = 7
     } else {
 		// con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
         j = 10
     }
     console.log(difficoltà)
+	console.log(cellLenght)
        
 // creo la costante bombe 
 const bombNumber = 16
-const bombe = getArrayOfRandomIntBetween(1,cellLenght,bombNumber)
+const bombe = getArrayOfRandomIntBetween(1,cellLenght,16)
+console.log(bombe)
 
 // genero le nuove caselle in base alla difficoltà da inserire nella griglia del dom
 	for (let i = 0; i < cellLenght; i++) {
