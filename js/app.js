@@ -116,9 +116,8 @@ gameBtnElement.addEventListener("click", function () {
 				//   - aggiungo la classe bg-red
 				currentCellElement.classList.add("bg-red");
 				//   - faccio apparire un alert con scritto game over
-				let message = "GAME OVER";
-
-				punteggioDOMElement.innerHTML = message;
+				gridElement.classList.add("display-none");
+				mainWrapperDOMElement.innerHTML += `<div><h1> GAME OVER </h1> </div> `;
 
 				gridElement.classList.add("pointer-none");
 				console.log(cellDOMElement);
