@@ -73,3 +73,7 @@
 .bg-red {
     background-color: red;
 }
+
+.pointer-none {
+    pointer-events: none;
+}

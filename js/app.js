@@ -96,7 +96,7 @@ gameBtnElement.addEventListener("click", function () {
 
 	//    - recupero tutte le caselle create
 	const cellDOMElement = document.querySelectorAll(".cell");
-	// console.log(cellDOMElement);
+	console.log(cellDOMElement);
 
 	//    - ciclo le caselle del dom nell' array
 	for (let i = 0; i < cellDOMElement.length; i++) {
@@ -116,19 +116,23 @@ gameBtnElement.addEventListener("click", function () {
 			if (bombe.includes(selectedCell)) {
 			//   - aggiungo la classe bg-red
 			   currentCellElement.classList.add("bg-red")
-
 			   //   - faccio apparire un alert con scritto game over
 			   console.log('GAME OVER')
+
+			   gridElement.classList.add("pointer-none")
+			   console.log(cellDOMElement)
 
 		    } else {
 				//   - aggiungo la classe bg-blue
 				currentCellElement.classList.add("bg-azure")
+
+				currentCellElement.classList.add("pointer-none")
                //   - incremento il punteggio
 			   punteggioDOMElement.innerHTML++ 
 			   console.log(punteggioDOMElement.innerHTML)
 			}
 			
-			let punteggio = punteggioDOMElement.innerHTML
+			const punteggio = punteggioDOMElement.innerHTML
             if (punteggio == (cellLenght - bombNumber) ) {
 		     alert('hai vinto')
 	        }
