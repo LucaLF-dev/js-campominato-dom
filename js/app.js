@@ -132,7 +132,8 @@ gameBtnElement.addEventListener("click", function () {
 			}
 
 			const punteggio = punteggioDOMElement.innerHTML;
-			if (punteggio == cellLenght - bombNumber) {
+
+			if (punteggio == (cellLenght - bombNumber)) {
 				gridElement.classList.add("display-none");
 				mainWrapperDOMElement.innerHTML += `<div><h1> HAI VINTO ${punteggio} </h1> </div> `;
 			}
